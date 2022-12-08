@@ -16,14 +16,6 @@ public class FavouriteServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String favouriteMovie = request.getParameter("favouriteMovie");
 
-        User user = new User();
-
-        if (user.getUserName() != null){
-            request.setAttribute("user", "Welcome " + user.getUserName() + "!");
-        }else{
-            request.setAttribute("user", "Welcome");
-        }
-
         if (favouriteMovie.isEmpty()) {
             request.setAttribute("error", "Please enter a favourite movie of yours.");
             doPost(request, response);
